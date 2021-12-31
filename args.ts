@@ -36,11 +36,11 @@ class Args {
 	 * console.log(args.find((arg, argName) => argName === 'some' && arg.includes('option')))
 	 * ``` 
 	 */
-	find(func: (val: string, key: string) => boolean, thisArg: any): string | undefined {
+	find(func: (val: string, key: string) => boolean, thisArg: any): { arg: string, value: string } | undefined {
 		if(typeof func !== 'function') throw new Error('find() requires a function');
 		if (typeof thisArg !== 'undefined') func = func.bind(thisArg);
 		for(const [key, val] of this._map) {
-			if (func(val, key)) return val;
+			if (func(val, key)) return { arg: key, value: val };
 		}
 		return undefined;
 	}

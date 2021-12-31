@@ -62,7 +62,7 @@ console.log(parse('!', commandString))
 	 const { args } = parse('!', commandString);
 	 console.log(args.get('code'))
   ```
-### Args.find(function: (val: string, key: string) => boolean): String
+### find(func: (val: string, key: string) => boolean, thisArg: any): { arg: string, value: string } | undefined
 
 > similar to get, but instead of searching with arg name Searches for a single item where the given function returns a truthy value
 

@@ -16,7 +16,7 @@ class Args {
 	 * @example
 	 * ```
 	 * const commandString = `!eval -code \`\`\`some kind of code here\`\`\` -some "other option"`;
-	 * const { args } = parse('!', commandString);
+	 * const { args } = parse(commandString, { prefix: '!' });
 	 * 
 	 * console.log(args.get('code'))
 	 * ```
@@ -32,7 +32,7 @@ class Args {
 	 * @example
 	 * ```
 	 * const commandString = `!eval -code \`\`\`some kind of code here\`\`\` -some "other option"`;
-	 * const { args } = parse('!', commandString);
+	 * const { args } = parse(commandString, { prefix: '!' });
 	 * console.log(args.find((arg, argName) => argName === 'some' && arg.includes('option')))
 	 * ``` 
 	 */
@@ -52,7 +52,7 @@ class Args {
 	 * @example
 	 * ```
 	 * const commandString = `!eval -code \`\`\`some kind of code here\`\`\` -some "other option"`;
-	 * const { args } = parse('!', commandString);
+	 * const { args } = parse(commandString, { prefix: '!' });
 	 * console.log(args.has('code'))
 	 * ```
 	 */
@@ -66,7 +66,7 @@ class Args {
 	 * ```
 	 * // assume from a user input (discord bot)
 	 * const commandString = `!eval -code \`\`\`some kind of code here\`\`\` -some "other option"`;
-	 * const { args } = parse('!', commandString);
+	 * const { args } = parse(commandString, { prefix: '!' });
 	 * 
 	 * console.log(args.parseAllKeys((k, s) => s.replace(/\`/g, '').replace(/"/g, ' ')))
 	 * ```
@@ -90,7 +90,7 @@ class Args {
 	 * @example
 	 * ```
 	 * 	const commandString = `!help -page 2 -result 10`;
-	 * 	const { args } = parse('!', commandString);
+	 * 	const { args } = parse(commandString, { prefix: '!' });
 	 * // checks if every val is a number
 	 * console.log(args.every((val) => !isNaN(val)))
 	 * ```

@@ -1,6 +1,6 @@
 {
   "name": "@typicalninja21/cmd-parser",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Parses Strings for commands (strings) supports options and Args system",
   "main": "dist/parser.js",
   "types": "dist/parser.d.ts",
@@ -8,7 +8,14 @@
   "scripts": {
     "test": "mocha"
   },
-  "keywords": ["discord", "strings", "parser", "discord.js", "message-commands", "utils"],
+  "keywords": [
+    "discord",
+    "strings",
+    "parser",
+    "discord.js",
+    "message-commands",
+    "utils"
+  ],
   "author": "typicalninja21",
   "license": "MIT"
 }

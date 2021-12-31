@@ -87,7 +87,7 @@ __Example__
    console.log(args.has('code'))
   ```
 
-## Args.parseAllKeys(func: (argument: string, value: string) => string): Args
+### Args.parseAllKeys(func: (argument: string, value: string) => string): Args
 
 > Runs given function on each argument and returns a new Args object with the results, useful for escaping values in all args
 
@@ -100,7 +100,7 @@ __Example__
 	 console.log(args.parseAllKeys((k, s) => s.replace(/\`/g, '').replace(/"/g, ' ')))
   ```
 
-## Args.every(func: (arg: string, value: string) => boolean, thisArg?: any): boolean
+### Args.every(func: (arg: string, value: string) => boolean, thisArg?: any): boolean
 
 > Runs the given function on all the values of args and checks if at least one returns false
 
@@ -112,3 +112,8 @@ __Example__
 	  // checks if every val is a number
 	  console.log(args.every((val) => !isNaN(val)))
   ```
+
+
+# License
+
+This repository and the code inside it is licensed under the MIT License. Read [LICENSE](https://github.com/typicalninja493/cmd-parser/blob/master/LICENSE) for more information.

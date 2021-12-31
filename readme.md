@@ -17,7 +17,10 @@ const parse = require('@typicalninja21/cmd-parser').parse;
 const commandString = `!commands add -type string -name testCommand`
 
 // first argument is the prefix, second is the command string you got
-console.log(parse('!', commandString))
+console.log(parse(commandString, {
+  prefix: '!',
+  // optionsOperator: '-' (optional, default to "-")
+}))
 ```
 
 ## OutPut

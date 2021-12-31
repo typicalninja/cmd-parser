@@ -3,7 +3,32 @@ const assert = require('assert')
 const internal = require('stream')
 const commandString = `!command -some -test true`
 
-const { args } = parse('!', commandString)
+const { args } = parse(commandString, {
+	prefix: '!'
+});
+
+
+describe('Parser', () => {
+	it('Should Error Since no prefix is Provided', () => {
+		assert.throws(() => {
+			parse(commandString, { })
+		});
+	});
+
+	it('Should Error Since Prefix Provided is not a string', () => {
+		assert.throws(() => {
+			parse(commandString, { prefix: 1 })
+		});
+	});
+
+	it('Should parse Command string with custom optionsOperator (=)', () => {
+		const cs = `!command =something else`
+		const p = parse(cs, { prefix: '!', optionsOperator: '=' });
+		console.log(p)
+		assert.equal(p.args.has('something'), true)
+		assert.equal(p.args.get('something'), 'else')
+	})
+})
 
 describe('#Args.get', () => {
 	it('Should return undefined if argument does not Exists', () => {

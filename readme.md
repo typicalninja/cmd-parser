@@ -62,7 +62,7 @@ console.log(parse(commandString, {
 
   ```js
    const commandString = `!eval -code \`\`\`some kind of code here\`\`\` -some "other option"`;
-	 const { args } = parse('!', commandString);
+	 const { args } = parse(commandString, { prefix: '!' });
 	 console.log(args.get('code'))
   ```
 ### find(func: (val: string, key: string) => boolean, thisArg: any): { arg: string, value: string } | undefined
@@ -73,7 +73,7 @@ __Example__
 
 ```js
 const commandString = `!eval -code \`\`\`some kind of code here\`\`\` -some "other option"`;
-const { args } = parse('!', commandString);
+const { args } = parse(commandString, { prefix: '!' });
 
 console.log(args.find((arg, argName) => argName === 'some' && arg.includes('option')))
 ```
@@ -86,7 +86,7 @@ __Example__
 
   ```js
    const commandString = `!eval -code \`\`\`some kind of code here\`\`\` -some "other option"`;
-   const { args } = parse('!', commandString);
+   const { args } = parse(commandString, { prefix: '!' });
    console.log(args.has('code'))
   ```
 
@@ -98,7 +98,7 @@ __Example__
 
   ```js
 	 const commandString = `!eval -code \`\`\`some kind of code here\`\`\` -some "other option"`;
-	 const { args } = parse('!', commandString);
+	 const { args } = parse(commandString, { prefix: '!' });
 	 
 	 console.log(args.parseAllKeys((k, s) => s.replace(/\`/g, '').replace(/"/g, ' ')))
   ```
@@ -111,11 +111,16 @@ __Example__
 
   ```js
     const commandString = `!help -page 2 -result 10`;
-	  const { args } = parse('!', commandString);
+	  const { args } = parse(commandString, { prefix: '!' });
 	  // checks if every val is a number
 	  console.log(args.every((val) => !isNaN(val)))
   ```
 
+# Tests
+
+Tests are available [here](https://github.com/typicalninja493/cmd-parser/tree/master/test), (they can be also used as examples)
+
+> run `npm run test` to run the tests (requires [mocha](https://mochajs.org/))
 
 # License
 
